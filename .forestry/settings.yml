@@ -4,6 +4,11 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
+- type: directory
+  path: _pass
+  label: Перевалы
+  create: all
+  match: "**/*"
 - type: heading
   label: Content
 - type: jekyll-posts
@@ -19,7 +24,7 @@ sections:
   - page
 - type: directory
   path: _people
-  label: People
+  label: Персоны
   create: all
   match: "*"
   templates:
@@ -41,16 +46,12 @@ use_front_matter_path: false
 file_template: ":year:/:month:/:day:/:filename:"
 instant_preview: true
 build:
-  preview_command: bundle exec jekyll build --drafts --unpublished --future -d _site
-  publish_command: bundle exec jekyll build -d _site
   preview_env:
   - JEKYLL_ENV=staging
-  publish_env:
-  - JEKYLL_ENV=production
   preview_output_directory: _site
-  output_directory: _site
-  instant_preview_command: bundle exec jekyll serve --drafts --unpublished --future
-    --port 8080 --host 0.0.0.0 -d _site
   install_dependencies_command: bundle install --path vendor/bundle
   preview_docker_image: forestryio/ruby:2.6
   mount_path: "/srv"
+  instant_preview_command: bundle exec jekyll serve --drafts --unpublished --future
+    --port 8080 --host 0.0.0.0 -d _site
+  preview_command: bundle exec jekyll build --drafts --unpublished --future -d _site
