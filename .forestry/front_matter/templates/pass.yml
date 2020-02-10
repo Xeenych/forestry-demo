@@ -17,3 +17,12 @@ fields:
 - type: datetime
   name: publish_date
   label: publish_date
+- name: nazvanie
+  type: text
+  config:
+    required: false
+  label: Название
+- name: fotografii
+  type: image_gallery
+  config: {}
+  label: Фотографии
