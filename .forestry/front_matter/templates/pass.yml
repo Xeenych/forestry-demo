@@ -26,3 +26,5 @@ fields:
   type: image_gallery
   config: {}
   label: Фотографии
+pages:
+- _pass/тамгинский.md
